@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CubePickUp : MonoBehaviour {
 
-    public Image [] box = new Image[5];
+    public Image [] box    = new Image[5];
+    public Button[] boxNum = new Button[5];
     public Sprite test;
 
 	// Use this for initialization
@@ -42,5 +43,6 @@ public class CubePickUp : MonoBehaviour {
     {
         cube = "haha";
         box[0].sprite = test;
+        boxNum[0].GetComponentInChildren<Text>().text = "1";
     }
 }
