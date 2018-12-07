@@ -52,8 +52,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AmyLin\menu\StartGame.cs" />
-     <Compile Include="Assets\Script\AmyLin\test\test1.cs" />
-     <Compile Include="Assets\Script\AmyLin\test\test2.cs" />
      <Compile Include="Assets\Script\Game\CameraMoving.cs" />
      <Compile Include="Assets\Script\Game\CubePickUp.cs" />
      <Compile Include="Assets\Script\Game\VikingWalk.cs" />

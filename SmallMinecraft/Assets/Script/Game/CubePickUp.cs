@@ -7,12 +7,14 @@ public class CubePickUp : MonoBehaviour {
 
     public Image [] box = new Image[5];
     public Sprite test;
+
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -22,6 +24,8 @@ public class CubePickUp : MonoBehaviour {
             if (Physics.Raycast(ray, out ray_cast_hit))
             {
                 GameObject cube = ray_cast_hit.collider.gameObject;
+
+                // which cube has been clicked
                 if( cube.name.IndexOf( "cube_soil" ) != -1)
                 {
                     PutInToBox("cube_soil");
@@ -32,6 +36,8 @@ public class CubePickUp : MonoBehaviour {
         }
     }
 
+
+    // change the image in tool box
     void PutInToBox( string cube )
     {
         cube = "haha";
