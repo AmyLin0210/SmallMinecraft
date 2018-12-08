@@ -15,6 +15,7 @@ public class toolBox : MonoBehaviour {
 		
 	}
 
+    // the cube number enhance
     public void pickUp()
     {
         Button number = gameObject.GetComponentInChildren<Button>();
@@ -23,6 +24,7 @@ public class toolBox : MonoBehaviour {
         number.GetComponentInChildren<Text>().text = (int.Parse(num) + 1).ToString();
     }
 
+    // the cube number reduce
     public void takeOut()
     {
         Button number = gameObject.GetComponentInChildren<Button>();
@@ -31,6 +33,7 @@ public class toolBox : MonoBehaviour {
         number.GetComponentInChildren<Text>().text = (int.Parse(num) - 1).ToString();
     }
 
+    // judge is the cube Empty
     public bool isEmpty()
     {
         Button number = gameObject.GetComponentInChildren<Button>();
