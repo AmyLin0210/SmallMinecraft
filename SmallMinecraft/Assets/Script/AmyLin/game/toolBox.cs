@@ -15,17 +15,29 @@ public class toolBox : MonoBehaviour {
 		
 	}
 
-    public void test()
-    {
-        transform.position = new Vector3(1, 1, 1);
-    }
-
-    public void pickUp( )
+    public void pickUp()
     {
         Button number = gameObject.GetComponentInChildren<Button>();
         string num = number.GetComponentInChildren<Text>().text;
 
         number.GetComponentInChildren<Text>().text = (int.Parse(num) + 1).ToString();
+    }
 
+    public void takeOut()
+    {
+        Button number = gameObject.GetComponentInChildren<Button>();
+        string num = number.GetComponentInChildren<Text>().text;
+
+        number.GetComponentInChildren<Text>().text = (int.Parse(num) - 1).ToString();
+    }
+
+    public bool isEmpty()
+    {
+        Button number = gameObject.GetComponentInChildren<Button>();
+        string num = number.GetComponentInChildren<Text>().text;
+        if (num == "0")
+            return true;
+        else
+            return false;
     }
 }
