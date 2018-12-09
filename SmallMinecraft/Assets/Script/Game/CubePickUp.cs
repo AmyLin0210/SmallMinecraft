@@ -42,10 +42,12 @@ public class CubePickUp : MonoBehaviour {
                 }
                 if (cube.name.IndexOf("cube_grass") != -1)
                 {
+                    PutInToBox( 3 );
                     Destroy(cube);
                 }
                 if (cube.name.IndexOf("cube_leaves") != -1)
                 {
+                    PutInToBox( 4 );
                     Destroy(cube);
                 }
             }
