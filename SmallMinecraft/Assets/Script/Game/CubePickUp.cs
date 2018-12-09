@@ -40,6 +40,14 @@ public class CubePickUp : MonoBehaviour {
                     PutInToBox( 2 );
                     Destroy(cube);
                 }
+                if (cube.name.IndexOf("cube_grass") != -1)
+                {
+                    Destroy(cube);
+                }
+                if (cube.name.IndexOf("cube_leaves") != -1)
+                {
+                    Destroy(cube);
+                }
             }
         }
     }
