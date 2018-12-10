@@ -278,12 +278,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114101004562274658, guid: 22d8c7ed9cc9cd642b08461c18b7be92,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 58a5445edd0881740bd27a375fd38929,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22d8c7ed9cc9cd642b08461c18b7be92, type: 2}
   m_IsPrefabParent: 0
@@ -587,8 +581,7 @@ Prefab:
       propertyPath: m_Name
       value: Box (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114101004562274658, guid: 22d8c7ed9cc9cd642b08461c18b7be92,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4fec0a11c355d7c4093c504dc01a769a,
@@ -1672,12 +1665,6 @@ Prefab:
       propertyPath: m_Name
       value: Box (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 114101004562274658, guid: 22d8c7ed9cc9cd642b08461c18b7be92,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dd966df5c8e5d26468ef0059d9b64831,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22d8c7ed9cc9cd642b08461c18b7be92, type: 2}
   m_IsPrefabParent: 0
@@ -1930,8 +1917,7 @@ Prefab:
       propertyPath: m_Name
       value: Box (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114101004562274658, guid: 22d8c7ed9cc9cd642b08461c18b7be92,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4aec1a7f98e5dd749859826cf12cc289,
@@ -2160,8 +2146,7 @@ Prefab:
       propertyPath: m_Name
       value: Box (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114101004562274658, guid: 22d8c7ed9cc9cd642b08461c18b7be92,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f823ee108253b92429e3bd3c71cc893a,
