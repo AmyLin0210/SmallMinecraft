@@ -7,28 +7,52 @@ using UnityEngine.SceneManagement;
 
 public class DropDownController : MonoBehaviour {
     public Dropdown dropdown;
+    public Canvas subCanvas;
+
+    const int GameMenu = 0;
+    const int Reset = 1;
+    const int Exit = 2;
+    const int ToolBox = 3;
 
     public void Dropdown_IndexChange( int index)
     {
         switch( index)
         {
             // go back to game menu
-            case 1:
+            case GameMenu:
                 SceneManager.LoadScene(0);
                 break;
 
             // reset
-            case 2:
+            case Reset:
 
             // exit the game
-            case 3:
+            case Exit:
                 Application.Quit();
+                break;
+            case ToolBox:
+                showSubCanvas();
                 break;
         }
     }
 
-    void start()
+    void ShowToolBox()
     {
 
+    }
+
+    void Start()
+    {
+        hideSubCanvas();
+    }
+
+    void hideSubCanvas()
+    {
+        subCanvas.enabled = false;
+    }
+
+    void showSubCanvas()
+    {
+        subCanvas.enabled = true;
     }
 }

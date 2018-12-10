@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AmyLin\game\toolBox.cs" />
+     <Compile Include="Assets\Script\AmyLin\menu\BoxItem.cs" />
      <Compile Include="Assets\Script\AmyLin\menu\DropDownController.cs" />
      <Compile Include="Assets\Script\AmyLin\menu\StartGame.cs" />
      <Compile Include="Assets\Script\Game\CameraMoving.cs" />
