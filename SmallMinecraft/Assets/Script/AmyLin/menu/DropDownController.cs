@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 public class DropDownController : MonoBehaviour {
     public Dropdown dropdown;
     public Canvas subCanvas;
+    public GameObject player;
 
-    const int GameMenu = 0;
-    const int Reset = 1;
-    const int Exit = 2;
-    const int ToolBox = 3;
+    const int GameMenu = 1;
+    const int Reset = 2;
+    const int Exit = 3;
+    const int ToolBox = 4;
 
     public void Dropdown_IndexChange( int index)
     {
@@ -32,6 +33,7 @@ public class DropDownController : MonoBehaviour {
                 break;
             case ToolBox:
                 showSubCanvas();
+                player.GetComponent<CubePickUp>().toolBoxStatusChange();
                 break;
         }
     }

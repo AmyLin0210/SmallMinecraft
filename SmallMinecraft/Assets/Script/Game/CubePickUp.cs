@@ -11,6 +11,9 @@ public class CubePickUp : MonoBehaviour {
     const int grass  = 3;
     const int leaves = 4;
 
+    bool isToolBoxOpen = false;
+
+    public GameObject toolBoxItem;
     public GameObject[] toolBox = new GameObject[5];
 
 	// Use this for initialization
@@ -20,7 +23,7 @@ public class CubePickUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isToolBoxOpen)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -60,6 +63,10 @@ public class CubePickUp : MonoBehaviour {
         }
     }
 
+    public void toolBoxStatusChange()
+    {
+        isToolBoxOpen = !isToolBoxOpen;
+    }
 
     // change the image in tool box
     void PutInToBox( int cube )
@@ -84,6 +91,31 @@ public class CubePickUp : MonoBehaviour {
             {
                 isEmpty = false;
                 toolBox[i].GetComponent<toolBox>().AddComponment(cube);
+            }
+        }
+
+        isEmpty = true;
+        Button toolItem;
+
+        // there is a same cube in the box
+        for (int i = 0; i < 12 && isEmpty; ++i)
+        {
+            toolItem = toolBoxItem.GetComponentsInChildren < Button >()[i];
+            if (toolItem.GetComponent<BoxItem>().GetCubeNumber() == cube)
+            {
+                isEmpty = false;
+                toolItem.GetComponent<BoxItem>().pickUp();
+            }
+        }
+        // there is no same cube in the cube
+        // but there is a empty toolbox
+        for (int i = 0; i < 12 && isEmpty; ++i)
+        {
+            toolItem = toolBoxItem.GetComponentsInChildren<Button>()[i];
+            if (toolItem.GetComponent<BoxItem>().GetCubeNumber() == -1)
+            {
+                isEmpty = false;
+                toolItem.GetComponent<BoxItem>().AddComponment(cube);
             }
         }
     }
