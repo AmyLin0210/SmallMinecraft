@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\Game\CameraMoving.cs" />
      <Compile Include="Assets\Script\Game\CreateGround.cs" />
      <Compile Include="Assets\Script\Game\CubePickUp.cs" />
+     <Compile Include="Assets\Script\Game\DayAndNight.cs" />
      <Compile Include="Assets\Script\Game\VikingWalk.cs" />
      <Compile Include="Assets\Source\Minecraft\Scripts\3dNoiseTest\NoiseTest.cs" />
      <Compile Include="Assets\Source\Minecraft\Scripts\Misc\CustomController.cs" />
