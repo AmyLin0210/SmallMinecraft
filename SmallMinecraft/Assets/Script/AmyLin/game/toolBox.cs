@@ -5,53 +5,22 @@ using UnityEngine.UI;
 
 public class toolBox : MonoBehaviour {
 
-    public Sprite sprite_soil, sprite_leaves, sprite_wood, sprite_stone, sprite_grass;
+    public GameObject cubeInformation;
+    public GameObject bag;
 
-    const int soil = 0;
-    const int stone = 1;
-    const int wood = 2;
-    const int grass = 3;
-    const int leaves = 4;
-
+    int BagNumber = -1;
     int CubeNumber = -1;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     // when we put the first cube in the box
-    public void AddComponment( int cubeNum)
+    public void AddComponment( int cubeNum, int bagNum )
     {
         Button image = gameObject.GetComponentsInChildren<Button>()[0];
         Image boxImage = image.GetComponentInChildren<Image>();
 
         CubeNumber = cubeNum;
+        BagNumber = bagNum;
 
-        // set picture
-        switch (cubeNum)
-        {
-            case soil:
-                boxImage.sprite = sprite_soil;
-                break;
-            case stone:
-                boxImage.sprite = sprite_stone;
-                break;
-            case leaves:
-                boxImage.sprite = sprite_leaves;
-                break;
-            case wood:
-                boxImage.sprite = sprite_wood;
-                break;
-            case grass:
-                boxImage.sprite = sprite_grass;
-                break;
-        }
+        boxImage.sprite = cubeInformation.GetComponent<CubeInformation>().GetCubeSprite(cubeNum);
 
         // initialize cube number
         Button buttonCubeNumber = gameObject.GetComponentsInChildren<Button>()[1];
@@ -76,6 +45,8 @@ public class toolBox : MonoBehaviour {
     // the cube number reduce
     public void takeOut()
     {
+        bag.GetComponentsInChildren<BoxItem>()[BagNumber].takeOut();
+
         Button number = gameObject.GetComponentsInChildren<Button>()[1];
         string num = number.GetComponentInChildren<Text>().text;
 
@@ -93,7 +64,7 @@ public class toolBox : MonoBehaviour {
 
         Button image = gameObject.GetComponentsInChildren<Button>()[0];
         Image boxImage = image.GetComponentInChildren<Image>();
-        boxImage = null;
+        boxImage.sprite = null;
 
         CubeNumber = -1;
     }

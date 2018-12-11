@@ -51,16 +51,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\AmyLin\BagControl\BoxItem.cs" />
+     <Compile Include="Assets\Script\AmyLin\BagControl\CloseToolBox.cs" />
+     <Compile Include="Assets\Script\AmyLin\BagControl\ShowBoxInfo.cs" />
      <Compile Include="Assets\Script\AmyLin\game\toolBox.cs" />
-     <Compile Include="Assets\Script\AmyLin\menu\BoxItem.cs" />
-     <Compile Include="Assets\Script\AmyLin\menu\CloseToolBox.cs" />
      <Compile Include="Assets\Script\AmyLin\menu\DropDownController.cs" />
-     <Compile Include="Assets\Script\AmyLin\menu\ShowBoxInfo.cs" />
      <Compile Include="Assets\Script\AmyLin\menu\StartGame.cs" />
      <Compile Include="Assets\Script\Game\CameraMoving.cs" />
      <Compile Include="Assets\Script\Game\CreateGround.cs" />
      <Compile Include="Assets\Script\Game\CreatePickUpItem.cs" />
+     <Compile Include="Assets\Script\Game\CubeInformation.cs" />
      <Compile Include="Assets\Script\Game\CubePickUp.cs" />
+     <Compile Include="Assets\Script\Game\CubePutDown.cs" />
      <Compile Include="Assets\Script\Game\DayAndNight.cs" />
      <Compile Include="Assets\Script\Game\VikingWalk.cs" />
      <Compile Include="Assets\Source\Minecraft\Scripts\3dNoiseTest\NoiseTest.cs" />

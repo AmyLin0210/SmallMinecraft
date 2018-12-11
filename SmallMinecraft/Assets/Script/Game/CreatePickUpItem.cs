@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class CreatePickUpItem : MonoBehaviour {
 
-    public GameObject Soil, Stone, Wood, Grass, Leaves;
-
-    const int soil = 0;
-    const int stone = 1;
-    const int wood = 2;
-    const int grass = 3;
-    const int leaves = 4;
+    public GameObject CubeInformation;
 
     // Use this for initialization
     void Start () {
@@ -24,25 +18,7 @@ public class CreatePickUpItem : MonoBehaviour {
 
     public void isHit( int cubeNumber, Vector3 cubeLocation )
     {
-        GameObject temp = null;
-        switch( cubeNumber)
-        {
-            case leaves:
-                temp = Instantiate(Leaves);
-                break;
-            case stone:
-                temp = Instantiate(Stone);
-                break;
-            case soil:
-                temp = Instantiate(Soil);
-                break;
-            case grass:
-                temp = Instantiate(Grass);
-                break;
-            case wood:
-                temp = Instantiate(Wood);
-                break;
-        }
+        GameObject temp = Instantiate(CubeInformation.GetComponent<CubeInformation>().GetSmallCube(cubeNumber));
         temp.transform.parent = transform;
         temp.transform.position = cubeLocation;
     }
