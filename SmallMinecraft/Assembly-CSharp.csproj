@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\AmyLin\menu\StartGame.cs" />
      <Compile Include="Assets\Script\Game\CameraMoving.cs" />
      <Compile Include="Assets\Script\Game\CreateGround.cs" />
+     <Compile Include="Assets\Script\Game\CreatePickUpItem.cs" />
      <Compile Include="Assets\Script\Game\CubePickUp.cs" />
      <Compile Include="Assets\Script\Game\DayAndNight.cs" />
      <Compile Include="Assets\Script\Game\VikingWalk.cs" />

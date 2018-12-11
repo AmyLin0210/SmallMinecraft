@@ -13,7 +13,7 @@ public class CubePickUp : MonoBehaviour {
 
     bool isToolBoxOpen = false;
 
-    public GameObject toolBoxItem;
+    public GameObject toolBoxItem, pickUpItem;
     public GameObject[] toolBox = new GameObject[5];
 
 	// Use this for initialization
@@ -32,31 +32,59 @@ public class CubePickUp : MonoBehaviour {
             if (Physics.Raycast(ray, out ray_cast_hit))
             {
                 GameObject cube = ray_cast_hit.collider.gameObject;
+                Vector3 cubeLocation = cube.transform.position;
 
                 // which cube has been clicked
                 if( cube.name.IndexOf( "cube_soil" ) != -1)
                 {
-                    PutInToBox( soil );
+                    pickUpItem.GetComponent<CreatePickUpItem>().isHit(soil, cubeLocation);
                     Destroy(cube);
                 }
-                if (cube.name.IndexOf("cube_stone") != -1)
+                else if (cube.name.IndexOf("cube_stone") != -1)
                 {
-                    PutInToBox( stone );
+                    pickUpItem.GetComponent<CreatePickUpItem>().isHit(stone, cubeLocation);
                     Destroy(cube);
                 }
-                if (cube.name.IndexOf("cube_wood") != -1)
+                else if (cube.name.IndexOf("cube_wood") != -1)
                 {
-                    PutInToBox( wood );
+                    pickUpItem.GetComponent<CreatePickUpItem>().isHit(wood, cubeLocation);
                     Destroy(cube);
                 }
-                if (cube.name.IndexOf("cube_grass") != -1)
+                else if (cube.name.IndexOf("cube_grass") != -1)
                 {
-                    PutInToBox( grass );
+                    pickUpItem.GetComponent<CreatePickUpItem>().isHit(grass, cubeLocation);
                     Destroy(cube);
                 }
-                if (cube.name.IndexOf("cube_leaves") != -1)
+                else if (cube.name.IndexOf("cube_leaves") != -1)
                 {
-                    PutInToBox( leaves );
+                    pickUpItem.GetComponent<CreatePickUpItem>().isHit(leaves, cubeLocation);
+                    Destroy(cube);
+                }
+
+                // which cube has been clicked
+                if (cube.name.IndexOf("small_soil") != -1)
+                {
+                    PutInToBox(soil);
+                    Destroy(cube);
+                }
+                if (cube.name.IndexOf("small_stone") != -1)
+                {
+                    PutInToBox(stone);
+                    Destroy(cube);
+                }
+                if (cube.name.IndexOf("small_wood") != -1)
+                {
+                    PutInToBox(wood);
+                    Destroy(cube);
+                }
+                if (cube.name.IndexOf("small_grass") != -1)
+                {
+                    PutInToBox(grass);
+                    Destroy(cube);
+                }
+                if (cube.name.IndexOf("small_leaves") != -1)
+                {
+                    PutInToBox(leaves);
                     Destroy(cube);
                 }
             }
