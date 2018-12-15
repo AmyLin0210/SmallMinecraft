@@ -7,6 +7,7 @@ public class CubePickUp : MonoBehaviour {
 
     bool isToolBoxOpen = false;
 
+    public AudioSource CubePickUpSound;
     public GameObject cubeInformation;
     public GameObject toolBoxItem, pickUpItem;
     public GameObject[] toolBox = new GameObject[5];
@@ -68,6 +69,7 @@ public class CubePickUp : MonoBehaviour {
         int cubeNumber = cubeInformation.GetComponent<CubeInformation>().GetCubeNumber(cubeName);
         PutInToBox(cubeNumber);
         Destroy(cube);
+        CubePickUpSound.Play();
     }
 
     public void toolBoxStatusChange()

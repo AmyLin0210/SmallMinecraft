@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CubePutDown : MonoBehaviour {
 
+    public AudioSource PutDownSound;
     public GameObject[] toolBox = new GameObject[5];
     public Transform viking_sword, cubeParent;
     public GameObject cubeInformation;
@@ -73,5 +74,6 @@ public class CubePutDown : MonoBehaviour {
         t.position = rayPosition;
         CubeNumber = -1;
         toolBox[BoxNumber].GetComponent<toolBox>().takeOut();
+        PutDownSound.Play();
     }
 }

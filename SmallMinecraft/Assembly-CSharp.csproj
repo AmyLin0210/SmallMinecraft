@@ -64,6 +64,7 @@
      <Compile Include="Assets\Script\Game\CubePickUp.cs" />
      <Compile Include="Assets\Script\Game\CubePutDown.cs" />
      <Compile Include="Assets\Script\Game\DayAndNight.cs" />
+     <Compile Include="Assets\Script\Game\SoundEffect.cs" />
      <Compile Include="Assets\Script\Game\VikingWalk.cs" />
      <Compile Include="Assets\Source\Minecraft\Scripts\3dNoiseTest\NoiseTest.cs" />
      <Compile Include="Assets\Source\Minecraft\Scripts\Misc\CustomController.cs" />
