@@ -11,9 +11,8 @@ public class DropDownController : MonoBehaviour {
     public GameObject player;
 
     const int GameMenu = 1;
-    const int Reset = 2;
     const int Exit = 3;
-    const int ToolBox = 4;
+    const int ToolBox = 2;
 
     public void Dropdown_IndexChange( int index)
     {
@@ -23,9 +22,6 @@ public class DropDownController : MonoBehaviour {
             case GameMenu:
                 SceneManager.LoadScene(0);
                 break;
-
-            // reset
-            case Reset:
 
             // exit the game
             case Exit:

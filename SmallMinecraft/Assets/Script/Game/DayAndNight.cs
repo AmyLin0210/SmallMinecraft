@@ -11,8 +11,7 @@ public class DayAndNight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(Vector3.right * Time.deltaTime);
-        transform.Rotate(Vector3.back * Time.deltaTime);
+        transform.Rotate(Vector3.right * Time.deltaTime * 3);
     }
 }
     
