@@ -18,12 +18,12 @@ public class CameraMoving : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = player.position + initialize;
+        transform.position = player.position + new Vector3(0,2,0) + player.forward;
 
         yaw = player.eulerAngles.y;
         pitch -= Input.GetAxis("Mouse Y");

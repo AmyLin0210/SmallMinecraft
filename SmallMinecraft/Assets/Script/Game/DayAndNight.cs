@@ -12,6 +12,20 @@ public class DayAndNight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Rotate(Vector3.right * Time.deltaTime * 3);
+
+        if(transform.eulerAngles.x < 180)
+        {
+            monster.position = new Vector3(100, 300, 0);
+
+        }
+     
+        if(transform.eulerAngles.x > 350)
+        {
+            monster.position = new Vector3(0, 0, 30);
+        }
+
     }
+
+    public Transform monster;
 }
     

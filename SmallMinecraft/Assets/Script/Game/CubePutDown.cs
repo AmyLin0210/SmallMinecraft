@@ -42,7 +42,7 @@ public class CubePutDown : MonoBehaviour {
             RaycastHit ray_cast_hit;
 
             if (Physics.Raycast(ray, out ray_cast_hit))
-                PutDownCube(new Vector3(ray_cast_hit.point.x, ray_cast_hit.point.y+0.5f, ray_cast_hit.point.z));
+                PutDownCube(new Vector3((int)ray_cast_hit.point.x, (int)ray_cast_hit.point.y+1, (int)ray_cast_hit.point.z));
         }
     }
 

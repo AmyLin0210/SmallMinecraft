@@ -42,17 +42,6 @@ public class CubePickUp : MonoBehaviour {
                 else if (cube.name.IndexOf("cube_leaves") != -1)
                     hitCube(cube, "leaves", cubeLocation);
 
-                // which cube has been clicked
-                if (cube.name.IndexOf("small_soil") != -1)
-                    pickUpSmallCube(cube, "soil");
-                else if (cube.name.IndexOf("small_stone") != -1)
-                    pickUpSmallCube(cube, "stone");
-                else if (cube.name.IndexOf("small_wood") != -1)
-                    pickUpSmallCube(cube, "wood");
-                else if (cube.name.IndexOf("small_grass") != -1)
-                    pickUpSmallCube(cube, "grass");
-                else if (cube.name.IndexOf("small_leaves") != -1)
-                    pickUpSmallCube(cube, "leaves");
             }
         }
     }
@@ -131,5 +120,22 @@ public class CubePickUp : MonoBehaviour {
                 toolBox[i].GetComponent<toolBox>().AddComponment(cube, bagNumber);
             }
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        //Pickup Cube
+
+        GameObject cube = collision.gameObject;
+        if (cube.name.IndexOf("small_soil") != -1)
+            pickUpSmallCube(cube, "soil");
+        else if (cube.name.IndexOf("small_stone") != -1)
+            pickUpSmallCube(cube, "stone");
+        else if (cube.name.IndexOf("small_wood") != -1)
+            pickUpSmallCube(cube, "wood");
+        else if (cube.name.IndexOf("small_grass") != -1)
+            pickUpSmallCube(cube, "grass");
+        else if (cube.name.IndexOf("small_leaves") != -1)
+            pickUpSmallCube(cube, "leaves");
     }
 }
