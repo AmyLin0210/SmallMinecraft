@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class VikingWalk : MonoBehaviour {
 
@@ -31,6 +34,12 @@ public class VikingWalk : MonoBehaviour {
         yaw += Input.GetAxis("Mouse X") * speedV;
         transform.eulerAngles += new Vector3(0.0f, yaw, 0.0f);
 
+        if( !canBeHitted )
+        {
+            if (Time.time - hittedTime > 1)
+                canBeHitted = true;
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -41,8 +50,18 @@ public class VikingWalk : MonoBehaviour {
 
     public void gethit()
     {
-        Life--;
-        Debug.Log(Life);
+        if (canBeHitted) { 
+            Life--;
+            canBeHitted = false;
+            hittedTime = Time.time;
+            if (Life > 0)
+            {
+                Image bloodImage = blood.GetComponentsInChildren<Image>()[Life];
+                Destroy(bloodImage);
+            }   
+        }
+        if(Life < 0)
+            SceneManager.LoadScene(2);
     }
 
 
@@ -53,7 +72,10 @@ public class VikingWalk : MonoBehaviour {
     public int jumpforce = 10;
 
     private bool jump = false;
-    private int Life = 10;
+    private int Life = 7;
+    private float hittedTime = 5;
+    private bool canBeHitted = true;
 
     public float moving_speed = 10f;
+    public GameObject blood;
 }
