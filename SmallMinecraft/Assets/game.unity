@@ -4108,7 +4108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 921541622}
-  initialize: {x: 0, y: 1, z: 0}
+  initialize: {x: 0, y: 1, z: -0.5}
   speedH: 2
   speedV: 2
 --- !u!1 &1069986735

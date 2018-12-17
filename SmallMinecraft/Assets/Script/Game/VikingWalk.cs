@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class VikingWalk : MonoBehaviour {
 
+    bool canUserRotate = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -31,10 +32,18 @@ public class VikingWalk : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.L))
             Cursor.lockState = CursorLockMode.Locked;
-        yaw += Input.GetAxis("Mouse X") * speedV;
-        transform.eulerAngles += new Vector3(0.0f, yaw, 0.0f);
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            canUserRotate = !canUserRotate;
+        }
 
-        if( !canBeHitted )
+        if (canUserRotate)
+        {
+            yaw += Input.GetAxis("Mouse X") * speedV;
+            transform.eulerAngles += new Vector3(0.0f, yaw, 0.0f);
+        }
+
+        if ( !canBeHitted )
         {
             if (Time.time - hittedTime > 1)
                 canBeHitted = true;

@@ -24,9 +24,9 @@ public class CameraMoving : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (canCameraMove)
+        transform.position = player.position + initialize + player.forward;
+        if (canCameraMove )
         {
-            transform.position = player.position + new Vector3(0, 2, 0) + player.forward;
 
             yaw = player.eulerAngles.y;
             pitch -= Input.GetAxis("Mouse Y");
