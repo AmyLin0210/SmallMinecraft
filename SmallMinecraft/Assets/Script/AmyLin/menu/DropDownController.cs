@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class DropDownController : MonoBehaviour {
     public Dropdown dropdown;
     public Canvas subCanvas;
+    public Canvas tutorial;
     public GameObject player;
     public Transform sun;
 
@@ -15,6 +16,12 @@ public class DropDownController : MonoBehaviour {
     const int Exit = 3;
     const int ToolBox = 2;
     const int Night = 4;
+    const int Tutorial = 5;
+
+    public void Start()
+    {
+        hideSubCanvas();
+    }
 
     public void Dropdown_IndexChange( int index)
     {
@@ -36,6 +43,9 @@ public class DropDownController : MonoBehaviour {
             case Night:
                 sun.eulerAngles = new Vector3 ( 180, 0, 0 );
                 break;
+            case Tutorial:
+                tutorial.enabled = true;
+                break;
         }
     }
 
@@ -44,14 +54,11 @@ public class DropDownController : MonoBehaviour {
 
     }
 
-    void Start()
-    {
-        hideSubCanvas();
-    }
 
     void hideSubCanvas()
     {
         subCanvas.enabled = false;
+        tutorial.enabled = false;
     }
 
     void showSubCanvas()
