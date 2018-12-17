@@ -27,6 +27,18 @@ public class BagPutToBox : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+        if (this.GetComponentInChildren<Text>().text == "cancel")
+        {
+            for (int i = 0; i < 5; ++i)
+            {
+                cubeNum = Box.GetComponentsInChildren<toolBox>()[i].GetCubeNumber();
+                if ( CubeNumber == cubeNum)
+                {
+                    Box.GetComponentsInChildren<toolBox>()[i].clearBox();
+                    break;
+                }
+            }
+        }
     }
 
     public void setCubeNumber(int num)

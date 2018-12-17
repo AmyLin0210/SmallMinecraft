@@ -25,7 +25,7 @@ public class ShowBoxInfo : MonoBehaviour, IPointerClickHandler
         for (int i = 0; i < 5; ++i)
         {
             cubeNum = Box.GetComponentsInChildren<toolBox>()[i].GetCubeNumber();
-            if (int.Parse(boxNumber.text) == cubeNum)
+            if (this.GetComponent<BoxItem>().GetCubeNumber() == cubeNum)
             {
                 inBox = true;
                 break;
@@ -33,11 +33,15 @@ public class ShowBoxInfo : MonoBehaviour, IPointerClickHandler
         }
 
         if (inBox)
+        {
             PutOrCancel.GetComponentInChildren<Text>().text = "cancel";
+            PutOrCancel.GetComponent<BagPutToBox>().setCubeNumber(GetComponent<BoxItem>().GetCubeNumber());
+            PutOrCancel.GetComponent<BagPutToBox>().setBagNumber(GetComponent<BoxItem>().getBagNum());
+        }
         else
         {
             PutOrCancel.GetComponentInChildren<Text>().text = "put";
-            PutOrCancel.GetComponent<BagPutToBox>().setCubeNumber( GetComponent<BoxItem>().GetCubeNumber() );
+            PutOrCancel.GetComponent<BagPutToBox>().setCubeNumber(GetComponent<BoxItem>().GetCubeNumber());
             PutOrCancel.GetComponent<BagPutToBox>().setBagNumber(GetComponent<BoxItem>().getBagNum());
         }
 

@@ -83,4 +83,5 @@ public class toolBox : MonoBehaviour {
         Button buttonCubeNumber = gameObject.GetComponentsInChildren<Button>()[1];
         buttonCubeNumber.GetComponentInChildren<Text>().text = num;
     }
+
 }
