@@ -14,7 +14,7 @@ public class CameraMoving : MonoBehaviour {
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
-    bool canCameraMove = true;
+    bool canCameraRotate = false;
 
 
     // Use this for initialization
@@ -25,7 +25,8 @@ public class CameraMoving : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = player.position + initialize + player.forward;
-        if (canCameraMove )
+
+        if ( canCameraRotate )
         {
 
             yaw = player.eulerAngles.y;
@@ -34,8 +35,10 @@ public class CameraMoving : MonoBehaviour {
             transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-            canCameraMove = !canCameraMove;
+        if (Input.GetMouseButtonDown(0))
+            canCameraRotate = true;
+        if (Input.GetMouseButtonUp(0))
+            canCameraRotate = false;
 
     }
 }

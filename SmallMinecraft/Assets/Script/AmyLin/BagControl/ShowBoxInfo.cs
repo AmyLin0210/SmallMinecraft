@@ -8,17 +8,11 @@ using UnityEngine.SceneManagement;
 public class ShowBoxInfo : MonoBehaviour, IPointerClickHandler
 {
 
-    public Image boxImage;
-    public Text boxNumber;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Image  boxImage;
+    public Text   boxNumber;
+    public Button PutOrCancel;
+    public GameObject Box;
+
     public void OnPointerClick(PointerEventData e)
     {
         if (this.GetComponent<BoxItem>().GetCubeNumber() != -1)
@@ -26,5 +20,27 @@ public class ShowBoxInfo : MonoBehaviour, IPointerClickHandler
             boxImage.sprite = this.GetComponent<Image>().sprite;
             boxNumber.text = this.GetComponent<BoxItem>().GetCubeTotal().ToString();
         }
+        int cubeNum;
+        bool inBox = false;
+        for (int i = 0; i < 5; ++i)
+        {
+            cubeNum = Box.GetComponentsInChildren<toolBox>()[i].GetCubeNumber();
+            if (int.Parse(boxNumber.text) == cubeNum)
+            {
+                inBox = true;
+                break;
+            }
+        }
+
+        if (inBox)
+            PutOrCancel.GetComponentInChildren<Text>().text = "cancel";
+        else
+        {
+            PutOrCancel.GetComponentInChildren<Text>().text = "put";
+            PutOrCancel.GetComponent<BagPutToBox>().setCubeNumber( GetComponent<BoxItem>().GetCubeNumber() );
+            PutOrCancel.GetComponent<BagPutToBox>().setBagNumber(GetComponent<BoxItem>().getBagNum());
+        }
+
+
     }
 }

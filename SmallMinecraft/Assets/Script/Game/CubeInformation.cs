@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class CubeInformation : MonoBehaviour {
 
-    public GameObject smallCube_soil, smallCube_stone, smallCube_wood, smallCube_grass, smallCube_leaves;
-    public GameObject cube_soil, cube_stone, cube_wood, cube_grass, cube_leaves;
-    public Sprite     sprite_soil, sprite_stone, sprite_wood, sprite_grass, sprite_leaves;
+    public GameObject smallCube_soil, smallCube_stone, smallCube_wood, smallCube_grass, smallCube_leaves, smallCube_toxic;
+    public GameObject cube_soil, cube_stone, cube_wood, cube_grass, cube_leaves, cube_toxic;
+    public Sprite     sprite_soil, sprite_stone, sprite_wood, sprite_grass, sprite_leaves, sprite_toxic;
 
     public const int soil   = 0;
     public const int stone  = 1;
     public const int wood   = 2;
     public const int grass  = 3;
     public const int leaves = 4;
+    public const int toxic  = 5;
 
     public GameObject GetSmallCube( int number )
     {
@@ -48,6 +49,8 @@ public class CubeInformation : MonoBehaviour {
                 return cube_grass;
             case leaves:
                 return cube_leaves;
+            case toxic:
+                return cube_toxic;
             default:
                 return null;
         }
@@ -83,6 +86,8 @@ public class CubeInformation : MonoBehaviour {
                 return sprite_grass;
             case leaves:
                 return sprite_leaves;
+            case toxic:
+                return sprite_toxic;
             default:
                 return null;
         }

@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class BoxItem : MonoBehaviour {
 
     public GameObject cubeInformation;
+    public int BagNum;
 
     int CubeNumber = -1;
     int CubeTotal = 0;
 
     // Use this for initialization
     void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -58,5 +58,15 @@ public class BoxItem : MonoBehaviour {
         this.GetComponent<Image>().sprite = null;
         CubeTotal = 0;
         CubeNumber = -1;
+    }
+
+    public void setCubeTotal( int num)
+    {
+        CubeTotal = num;
+    }
+
+    public int getBagNum()
+    {
+        return BagNum;
     }
 }

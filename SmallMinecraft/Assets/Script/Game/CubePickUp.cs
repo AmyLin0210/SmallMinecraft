@@ -6,54 +6,65 @@ using UnityEngine.UI;
 public class CubePickUp : MonoBehaviour {
 
     bool isToolBoxOpen = false;
+    bool isHoldOnItem = false;
+    bool isHitItem = false;
+
+    float hitStartTime;
 
     public AudioSource CubePickUpSound;
     public GameObject cubeInformation;
     public GameObject toolBoxItem, pickUpItem;
     public GameObject[] toolBox = new GameObject[5];
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    GameObject hittedCube;
+    string hittedCubeName;
+    Vector3 cubeLocation;
+
+    // Use this for initialization
+    void Start() {
+    }
+
+    // Update is called once per frame
+    void Update() {
 
         if (Input.GetMouseButtonDown(0) && !isToolBoxOpen && !gameObject.GetComponent<CubePutDown>().GetIsHoldOnCube())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             RaycastHit ray_cast_hit;
 
             if (Physics.Raycast(ray, out ray_cast_hit))
             {
-                GameObject cube = ray_cast_hit.collider.gameObject;
-                Vector3 cubeLocation = cube.transform.position;
-
-                // which cube has been hit
-                if( cube.name.IndexOf( "cube_soil" ) != -1)
-                    hitCube(cube, "soil", cubeLocation);
-                else if (cube.name.IndexOf("cube_stone") != -1)
-                    hitCube(cube, "stone", cubeLocation);
-                else if (cube.name.IndexOf("cube_wood") != -1)
-                    hitCube(cube, "wood", cubeLocation);
-                else if (cube.name.IndexOf("cube_grass") != -1)
-                    hitCube(cube, "grass", cubeLocation);
-                else if (cube.name.IndexOf("cube_leaves") != -1)
-                    hitCube(cube, "leaves", cubeLocation);
-
+                hittedCube = ray_cast_hit.collider.gameObject;
+                cubeLocation = hittedCube.transform.position;
+                hitStartTime = Time.time;
             }
+        }
+
+        if(Input.GetMouseButtonUp(0) && canBeHitted())
+        {
+
+            // which cube has been hit
+            if (hittedCube.name.IndexOf("cube_soil") != -1)
+                hitCube(hittedCube, "soil", cubeLocation);
+            else if (hittedCube.name.IndexOf("cube_stone") != -1)
+                hitCube(hittedCube, "stone", cubeLocation);
+            else if (hittedCube.name.IndexOf("cube_wood") != -1)
+                hitCube(hittedCube, "wood", cubeLocation);
+            else if (hittedCube.name.IndexOf("cube_grass") != -1)
+                hitCube(hittedCube, "grass", cubeLocation);
+            else if (hittedCube.name.IndexOf("cube_leaves") != -1)
+                hitCube(hittedCube, "leaves", cubeLocation);
         }
     }
 
-    void hitCube( GameObject cube, string cubeName, Vector3 cubeLocation)
+    void hitCube(GameObject cube, string cubeName, Vector3 cubeLocation)
     {
         int cubeNumber = cubeInformation.GetComponent<CubeInformation>().GetCubeNumber(cubeName);
         pickUpItem.GetComponent<CreatePickUpItem>().isHit(cubeNumber, cubeLocation);
         Destroy(cube);
     }
 
-    void pickUpSmallCube( GameObject cube, string cubeName)
+    void pickUpSmallCube(GameObject cube, string cubeName)
     {
         int cubeNumber = cubeInformation.GetComponent<CubeInformation>().GetCubeNumber(cubeName);
         PutInToBox(cubeNumber);
@@ -67,7 +78,7 @@ public class CubePickUp : MonoBehaviour {
     }
 
     // change the image in tool box
-    void PutInToBox( int cube )
+    void PutInToBox(int cube)
     {
 
         bool isEmpty = true;
@@ -101,9 +112,9 @@ public class CubePickUp : MonoBehaviour {
         isEmpty = true;
 
         // there is a same cube in the box
-        for( int i = 0; i < 5 && isEmpty; ++i)
+        for (int i = 0; i < 5 && isEmpty; ++i)
         {
-            if( toolBox[i].GetComponent<toolBox>().GetCubeNumber() == cube)
+            if (toolBox[i].GetComponent<toolBox>().GetCubeNumber() == cube)
             {
                 isEmpty = false;
                 toolBox[i].GetComponent<toolBox>().pickUp();
@@ -112,9 +123,9 @@ public class CubePickUp : MonoBehaviour {
 
         // there is no same cube in the cube
         // but there is a empty toolbox
-        for( int i = 0; i < 5 && isEmpty; ++i)
+        for (int i = 0; i < 5 && isEmpty; ++i)
         {
-            if( toolBox[i].GetComponent<toolBox>().GetCubeNumber() == -1)
+            if (toolBox[i].GetComponent<toolBox>().GetCubeNumber() == -1)
             {
                 isEmpty = false;
                 toolBox[i].GetComponent<toolBox>().AddComponment(cube, bagNumber);
@@ -122,6 +133,15 @@ public class CubePickUp : MonoBehaviour {
         }
     }
 
+    public void HoldOnItem()
+    {
+        isHoldOnItem = true;
+    }
+
+    public void PutDownItem()
+    {
+        isHoldOnItem = false;
+    }
     void OnCollisionEnter(Collision collision)
     {
         //Pickup Cube
@@ -137,5 +157,13 @@ public class CubePickUp : MonoBehaviour {
             pickUpSmallCube(cube, "grass");
         else if (cube.name.IndexOf("small_leaves") != -1)
             pickUpSmallCube(cube, "leaves");
+    }
+
+    bool canBeHitted()
+    {
+        if (Time.time - hitStartTime > 0.5)
+            return false;
+        else
+            return true;
     }
 }

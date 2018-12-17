@@ -52,7 +52,7 @@ public class CubePutDown : MonoBehaviour {
 
     void HoldOnCube( int inputNum )
     {
-        viking_sword.localScale = new Vector3(0, 0, 0);
+        //viking_sword.GetComponent<CubePickUp>().HoldOnItem();
         CubeNumber = toolBox[inputNum].GetComponent<toolBox>().GetCubeNumber();
         toolBox[inputNum].GetComponentsInChildren<Button>()[0].GetComponentInChildren<Image>().color = Color.gray;
         BoxNumber = inputNum;
@@ -60,6 +60,7 @@ public class CubePutDown : MonoBehaviour {
 
     void PutDownCube( Vector3 rayPosition)
     {
+        //viking_sword.GetComponent<CubePickUp>().PutDownItem();
         Transform t = Instantiate(cubeInformation.GetComponent<CubeInformation>().GetCube(CubeNumber).transform);
         t.parent = cubeParent;
         t.position = rayPosition;

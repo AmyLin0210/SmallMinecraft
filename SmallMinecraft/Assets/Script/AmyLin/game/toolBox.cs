@@ -77,4 +77,10 @@ public class toolBox : MonoBehaviour {
         else
             return false;
     }
+
+    public void setCubeTotal(string num)
+    {
+        Button buttonCubeNumber = gameObject.GetComponentsInChildren<Button>()[1];
+        buttonCubeNumber.GetComponentInChildren<Text>().text = num;
+    }
 }
