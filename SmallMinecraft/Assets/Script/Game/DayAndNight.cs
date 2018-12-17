@@ -18,8 +18,11 @@ public class DayAndNight : MonoBehaviour {
             monster.position = new Vector3(100, 300, 0);
 
         }
-     
-        if(transform.eulerAngles.x > 350)
+
+        if (transform.eulerAngles.x > 180 && transform.eulerAngles.x < 182)
+            monster.position = new Vector3(0,0,0);
+
+            if (transform.eulerAngles.x > 350)
         {
             monster.position = new Vector3(0, 0, 30);
         }

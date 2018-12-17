@@ -11,7 +11,7 @@ public class toxicCube : MonoBehaviour
         if (c.transform.name == "User")
         {
             user.GetComponent<VikingWalk>().gethit();
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         
     }

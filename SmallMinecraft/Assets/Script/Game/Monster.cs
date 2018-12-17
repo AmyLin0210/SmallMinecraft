@@ -27,5 +27,5 @@ public class Monster : MonoBehaviour {
     }
 
     public Transform player;
-    private float followSpeed = 0.5f;
+    private float followSpeed = 0.2f;
 }
