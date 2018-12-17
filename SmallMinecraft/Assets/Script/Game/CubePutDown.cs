@@ -10,7 +10,6 @@ public class CubePutDown : MonoBehaviour {
     public Transform viking_sword, cubeParent;
     public GameObject cubeInformation;
     public Vector3 cubeInitialPosition;
-    GameObject tempCube = null;
     int CubeNumber = -1;
     int BoxNumber = -1;
 
@@ -21,9 +20,6 @@ public class CubePutDown : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (tempCube != null)
-            tempCube.transform.localPosition = viking_sword.localPosition + cubeInitialPosition;
-
         if (Input.GetKeyDown(KeyCode.Alpha1) && toolBox[0].GetComponent<toolBox>().GetCubeNumber() != -1)
             HoldOnCube(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2) && toolBox[1].GetComponent<toolBox>().GetCubeNumber() != -1)
@@ -35,7 +31,7 @@ public class CubePutDown : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Alpha5) && toolBox[4].GetComponent<toolBox>().GetCubeNumber() != -1)
             HoldOnCube(4);
 
-        if (Input.GetMouseButtonDown(1) && tempCube != null)
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -56,24 +52,20 @@ public class CubePutDown : MonoBehaviour {
 
     void HoldOnCube( int inputNum )
     {
-        Destroy(tempCube);
         viking_sword.localScale = new Vector3(0, 0, 0);
         CubeNumber = toolBox[inputNum].GetComponent<toolBox>().GetCubeNumber();
+        toolBox[inputNum].GetComponentsInChildren<Button>()[0].GetComponentInChildren<Image>().color = Color.gray;
         BoxNumber = inputNum;
-        tempCube = Instantiate(cubeInformation.GetComponent<CubeInformation>().GetCube(CubeNumber));
-        tempCube.transform.parent = this.transform;
-        tempCube.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        tempCube.transform.localPosition = viking_sword.localPosition + cubeInitialPosition;
     }
 
     void PutDownCube( Vector3 rayPosition)
     {
-        Destroy(tempCube);
         Transform t = Instantiate(cubeInformation.GetComponent<CubeInformation>().GetCube(CubeNumber).transform);
         t.parent = cubeParent;
         t.position = rayPosition;
         CubeNumber = -1;
         toolBox[BoxNumber].GetComponent<toolBox>().takeOut();
         PutDownSound.Play();
+        toolBox[BoxNumber].GetComponentsInChildren<Button>()[0].GetComponentInChildren<Image>().color = Color.white;
     }
 }

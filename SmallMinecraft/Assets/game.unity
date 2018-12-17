@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44950086, g: 0.49649626, b: 0.5591468, a: 1}
+  m_IndirectSpecularColor: {r: 0.43632972, g: 0.47471184, b: 0.5147129, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3447,7 +3447,7 @@ MonoBehaviour:
   - {fileID: 335544295}
   - {fileID: 1970663913}
   - {fileID: 1365185291}
-  viking_sword: {fileID: 1065940095}
+  viking_sword: {fileID: 921541622}
   cubeParent: {fileID: 741983488}
   cubeInformation: {fileID: 686744815}
   cubeInitialPosition: {x: 0, y: 0, z: 0}
@@ -4952,6 +4952,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Exit
       m_Image: {fileID: 0}
+    - m_Text: Night
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5186,6 +5188,7 @@ MonoBehaviour:
   dropdown: {fileID: 1156809650}
   subCanvas: {fileID: 1013665731}
   player: {fileID: 921541620}
+  sun: {fileID: 1447227254}
 --- !u!4 &1263572531
 Transform:
   m_ObjectHideFlags: 0
@@ -5741,13 +5744,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1447227252}
-  m_LocalRotation: {x: 0.95125127, y: -0.044943467, z: 0.25488698, w: 0.16773133}
+  m_LocalRotation: {x: 0.084186025, y: -0.25783414, z: 0.022557573, w: 0.9622502}
   m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 160, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: -30, z: 0}
 --- !u!114 &1447227255
 MonoBehaviour:
   m_ObjectHideFlags: 0

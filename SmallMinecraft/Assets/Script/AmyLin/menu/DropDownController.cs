@@ -9,10 +9,12 @@ public class DropDownController : MonoBehaviour {
     public Dropdown dropdown;
     public Canvas subCanvas;
     public GameObject player;
+    public Transform sun;
 
     const int GameMenu = 1;
     const int Exit = 3;
     const int ToolBox = 2;
+    const int Night = 4;
 
     public void Dropdown_IndexChange( int index)
     {
@@ -30,6 +32,9 @@ public class DropDownController : MonoBehaviour {
             case ToolBox:
                 showSubCanvas();
                 player.GetComponent<CubePickUp>().toolBoxStatusChange();
+                break;
+            case Night:
+                sun.eulerAngles = new Vector3 ( 180, 0, 0 );
                 break;
         }
     }
